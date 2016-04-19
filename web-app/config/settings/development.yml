@@ -1,0 +1,11 @@
+mailer:
+  user_name: 'maheshwpawar'
+  password: 'tudip123'
+  domain: 'gmail.com'
+  address: 'smtp.sendgrid.net'
+  port: '587'
+base_url: 'http://localhost:3000'
+
+DEV_URL: 'localhost:3000'
+DEV_ADDRESS: 'localhost'
+DEV_PORT: 1025

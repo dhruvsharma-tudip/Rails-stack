@@ -1,0 +1,56 @@
+= form_for @school do |f|
+  - if @school.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@school.errors.count, "error")} prohibited this school from being saved:"
+      %ul
+        - @school.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :avg_class_size
+    = f.text_field :avg_class_size
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :address
+    = f.text_field :address
+  .field
+    = f.label :demo_graphics
+    = f.text_field :demo_graphics
+  .field
+    = f.label :network
+    = f.text_field :network
+  .field
+    = f.label :number_of_students
+    = f.text_field :number_of_students
+  .field
+    = f.label :nwea_math
+    = f.text_field :nwea_math
+  .field
+    = f.label :nwea_reading
+    = f.text_field :nwea_reading
+  .field
+    = f.label :school_level_number
+    = f.text_field :school_level_number
+  .field
+    = f.label :school_options
+    = f.text_field :school_options
+  .field
+    = f.label :school_sparrow_score
+    = f.text_field :school_sparrow_score
+  .field
+    = f.label :short_name
+    = f.text_field :short_name
+  .field
+    = f.label :statistics
+    = f.text_field :statistics
+  .field
+    = f.label :web_address
+    = f.text_field :web_address
+
+  .actions
+    = f.submit 'Save'

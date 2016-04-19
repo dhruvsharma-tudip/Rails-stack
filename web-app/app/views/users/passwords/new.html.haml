@@ -1,0 +1,24 @@
+.focusedform.reset-password
+  .verticalcenter
+    = link_to "#{Settings.base_url}" do
+      =image_tag('logo-big.jpg',class: 'img brand')
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: {:id => 'forgot_pwd', method: :post }) do |f|
+      .panel.panel-primary.remove-border
+        .panel-body.remove-border
+          = devise_error_messages!
+          %h4.text-center.header-bottom-margin Forgot Password
+          .form-horizontal
+            .field.form-group
+              .col-sm-12
+                .input-group
+                  %span.input-group-addon
+                    %i.fa.fa-envelope
+                  = f.email_field :email, autofocus: true, :placeholder => 'Email', :class => 'form-control'
+        .panel-footer
+          %center
+            .actions
+              = f.submit 'Reset Password', :class =>'btn btn-primary btn-block'
+            %br/
+            %i.fa.fa-arrow-left.arw
+            - if controller_name != 'sessions'
+              = link_to "Back to Login", new_session_path(resource_name)

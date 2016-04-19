@@ -1,0 +1,20 @@
+.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      %button.navbar-toggle{"data-target" => '.navbar-collapse', "data-toggle" => 'collapse', :type => 'button'}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => '#'}
+        %img.img-responsive{:alt => '', :src => 'assets/img/vivaldi-logo.png'}
+    .navbar-collapse.collapse.navbar-right.scroll-me
+      %ul.nav.navbar-nav
+        %li
+          %a{:href => '#home'} Project Planner
+        %li
+          %a{:href => '#join_Free'} Join Free
+        %li
+          - if user_signed_in?
+            = link_to "Logout", destroy_user_session_path, method: :delete
+          - else
+            = link_to "Login", new_user_session_path

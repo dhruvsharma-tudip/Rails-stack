@@ -1,0 +1,35 @@
+.focusedform.login-page
+  .verticalcenter
+    = link_to "#{Settings.base_url}" do
+      =image_tag('logo-big.jpg',class: 'img brand')
+    = form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:id => 'sign_in'}) do |f|
+      .panel.panel-primary.remove-border
+        .panel-body.remove-border
+          = render 'layouts/flash_message'
+          = devise_error_messages!
+          .login
+            %h4.text-center.header-bottom-marginx Log in to get started or
+            .signup
+              - if devise_mapping.registerable? && controller_name != 'registrations'
+                = link_to 'Sign Up', new_registration_path(resource_name)
+          .form-horizontal
+            .field.form-group
+              .col-sm-12
+                .input-group
+                  %span.input-group-addon
+                    %i.fa.fa-envelope
+                  = f.email_field :email, autofocus: true , placeholder: 'Email' , :class =>'form-control'
+            .field.form-group
+              .col-sm-12
+                .input-group
+                  %span.input-group-addon
+                    %i.fa.fa-lock
+                  = f.password_field :password, placeholder: 'Password', autocomplete: 'off', :class =>'form-control'
+            %br
+            .panel-footer
+              .pull-right
+                .actions
+                  = f.submit 'Log In', :class =>'btn btn-primary btn-block'
+              .pull-left
+                - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+                  = link_to "Forgot password?", new_password_path(resource_name)

@@ -1,0 +1,35 @@
+- if user_signed_in?
+  %header.header.navbar.sync.navbar-inverse.navbar-fixed-top{:role => "banner"}
+
+    %a#leftmenu-trigger.tooltips{"data-placement" => "right", "data-toggle" => "tooltip", :title => "Toggle Sidebar"}
+    .navbar-header.pull-left
+      = image_tag('logo-big.jpg',class: 'navbar-brand brand-size schoolsparrow-logo')
+    %ul.nav.navbar-nav.pull-right.toolbar
+      %li.dropdown
+        %a.dropdown-toggle.username{"data-toggle" => "dropdown", :href => "#"}
+          %span.hidden-xs
+            #{current_user.first_name} #{current_user.last_name}
+            %i.fa.fa-caret-down
+          = image_tag(@user.avatar.url(:small),class: 'img brand')
+        %ul.dropdown-menu.userinfo.arrow
+          %li.username
+            %a{:href => "#"}
+              .pull-left
+                -#=image_tag(@user.avatar.url(:small),class: 'img brand')
+              .pull-right
+                %h5 #{current_user.first_name} #{current_user.last_name}
+                %small
+                  Logged in as
+                  %span #{current_user.first_name}
+          %li.userlinks
+            %ul.dropdown-menu
+              %li
+                - if current_user.is_admin?
+                  = link_to 'Add User', admin_create_new_user_path
+                - else
+                  = link_to 'Edit profile',edit_user_registration_path
+              %li
+                = link_to 'Change password', change_password_path, id:'change-password'
+              %li.divider
+              %li
+                = link_to "Logout", destroy_user_session_path, method: :delete

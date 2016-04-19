@@ -1,0 +1,23 @@
+%h1 Listing admin_admins
+
+%table
+  %thead
+    %tr
+      %th Email
+      %th Password
+      %th
+      %th
+      %th
+
+  %tbody
+    - @admin_admins.each do |admin_admin|
+      %tr
+        %td= admin_admin.email
+        %td= admin_admin.password
+        %td= link_to 'Show', admin_admin
+        %td= link_to 'Edit', edit_admin_admin_path(admin_admin)
+        %td= link_to 'Destroy', admin_admin, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Admin', new_admin_admin_path

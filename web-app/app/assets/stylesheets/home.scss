@@ -1,0 +1,79 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.scss.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.login {
+  display: inline-flex;
+  margin-left: 14%;
+}
+
+.signup {
+  margin-top: 8px;
+  margin-left: 8px;
+  font-size: 18px;
+  font-family: roboto;
+  margin-bottom: 23px;
+}
+
+.remove-border {
+  border:none;
+}
+
+.align-btns {
+  display: inline-flex;
+}
+.reset-btn {
+  margin-right: 10px;
+}
+.reset-btn-color {
+  background-color: white;
+  color: black;
+  border: 1px solid transparent;
+  touch-action: manipulation;
+}
+.reset-btn-color:hover {
+  color: #333333;
+  background-color: #cbced0;
+  border-color: #c6c8cb;
+}
+
+.help-block{
+  color: #a94442;
+  font-size: 12px;
+}
+
+.alert-usercustom {
+  text-align: center;
+}
+
+.alert-alert {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+.alert-notice {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #3c763d;
+}
+
+.alert-block p {
+  margin : 0 0 0;
+}
+
+.arw {
+  color: #337ab7;
+}
+
+.header-bottom-margin {
+  margin-bottom: 25px;
+}
+
+.custm {
+  background-color: #B7D1EB;
+}
+
+.custm-txt {
+  color: white;
+}

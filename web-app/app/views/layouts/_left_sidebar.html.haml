@@ -1,0 +1,25 @@
+- if user_signed_in?
+  %nav#page-leftbar{:role => "navigation"}
+    %ul#sidebar.acc-menu
+      %li#search
+        %a{:href => "javascript:;"}
+          %i.fa.fa-search.opacity-control
+        %form
+          %input.search-query{:placeholder => "Search...", :type => "text"}
+            %button{:type => "submit"}
+              %i.fa.fa-search
+      %li.divider
+      %li
+        - if current_user.is_admin?
+          = link_to dashboard_admin_path do
+            %i.fa.fa-home
+            %span Dashboard
+        - else
+          =  link_to dashboard_home_path do
+            %i.fa.fa-home
+            %span Dashboard
+      %li
+        - if current_user.is_admin?
+          =link_to all_users_path do
+            %i.fa.fa-users
+            %span Users

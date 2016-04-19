@@ -1,0 +1,27 @@
+#page-heading
+  %h1 Dashboard
+  .options
+    .btn-toolbar
+      .btn-group.hidden-xs
+        %a.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+          %i.fa.fa-cloud-download
+          %span.hidden-xs.hidden-sm.hidden-md Export as
+        %ul.dropdown-menu
+          %li
+            %a{:href => "#"} Text File (*.txt)
+          %li
+            %a{:href => "#"} Excel File (*.xlsx)
+          %li
+            %a{:href => "#"} PDF File (*.pdf)
+.container
+  .row
+    .col-md-11
+      .panel.panel-indigo
+        .panel-heading
+          %h4 User Accounts
+        .panel-body
+          = datagrid_form_for @grid, :method => :get, :url => dashboard_admin_path
+
+          = paginate(@grid.assets)
+          = datagrid_table @grid
+          = paginate(@grid.assets)

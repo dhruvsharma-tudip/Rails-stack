@@ -1,0 +1,106 @@
+-#.focusedform.registration-new
+-#  .verticalcenter
+-#    = link_to "#{Settings.base_url}" do
+-#      =image_tag('logo-big.jpg',class: 'img brand')
+-#    .panel.panel-primary.remove-border
+-#      .panel-body.remove-border
+-#        = render 'layouts/flash_message'
+-#        = devise_error_messages!
+-#        %h4.text-center.header-bottom-margin Sign Up
+-#        = form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:id => 'sign_up' ,:class => 'form-horizontal'}) do |f|
+-#          .field.form-group
+-#            .col-sm-12
+-#              .input-group
+-#                .input-group-addon
+-#                  %i.fa.fa-envelope
+-#                = f.email_field :email, autofocus: true, required: true, :class => 'form-control', :placeholder => 'Email'
+-#          .field.form-group
+-#            .col-sm-12
+-#              .input-group
+-#                %span.input-group-addon
+-#                  %i.fa.fa-user
+-#                = f.text_field :first_name, autofocus: true, :class => 'form-control', :placeholder => 'First Name'
+-#          .field.form-group
+-#            .col-sm-12
+-#              .input-group
+-#                %span.input-group-addon
+-#                  %i.fa.fa-user
+-#                = f.text_field :last_name, autofocus: true, :class => 'form-control', :placeholder => 'Last Name'
+-#          .field.form-group
+-#            .col-sm-12
+-#              .input-group
+-#                %span.input-group-addon
+-#                  %i.fa.fa-lock
+-#                = f.password_field :password, autofocus: true, :class => 'form-control', :placeholder => 'Password'
+-#          .field.form-group
+-#            .col-sm-12
+-#              .input-group
+-#                %span.input-group-addon
+-#                  %i.fa.fa-lock
+-#                = f.password_field :retypepassword, autofocus: true, :class => 'form-control', :placeholder => 'Confirm Password'
+-#          .block.form-group{:style => 'text-align:center'}
+-#            %input{:style => 'margin-right:5px', :type => 'checkbox' , :id => 'check-box', :name => 'user[check-box]'}
+-#              %span
+-#                I accept the
+-#                %a{:href => 'agreement'} User Agreement
+-#          .panel-footer
+-#            .actions
+-#              %center
+-#                = f.submit 'Sign Up', :class => 'btn btn-primary btn-block'
+-#                %br/
+-#                %i.fa.fa-arrow-left.arw
+-#                - if controller_name != 'sessions'
+-#                  = link_to "Back to Login", new_session_path(resource_name)
+.focusedform.registration-new
+  .verticalcenter
+    = link_to "#{Settings.base_url}" do
+      =image_tag('logo-big.jpg',class: 'img brand')
+    .panel.panel-primary.remove-border
+      .panel-body
+        = render 'layouts/flash_message'
+        = devise_error_messages!
+        %h4.text-center.header-bottom-margin Sign Up
+        = form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:id => 'sign_up' ,:class => 'form-horizontal'}) do |f|
+          .field.form-group
+            .col-sm-12
+              .input-group
+                %span.input-group-addon
+                  %i.fa.fa-envelope
+                = f.email_field :email, autofocus: true, required: true, :class => 'form-control', :placeholder => 'Email'
+          .field.form-group
+            .col-sm-12
+              .input-group
+                %span.input-group-addon
+                  %i.fa.fa-user
+                = f.text_field :first_name, autofocus: true, :class => 'form-control', :placeholder => 'First Name'
+          .field.form-group
+            .col-sm-12
+              .input-group
+                %span.input-group-addon
+                  %i.fa.fa-user
+                = f.text_field :last_name, autofocus: true, :class => 'form-control', :placeholder => 'Last Name'
+          .field.form-group
+            .col-sm-12
+              .input-group
+                %span.input-group-addon
+                  %i.fa.fa-lock
+                = f.password_field :password, autofocus: true, :class => 'form-control', :placeholder => 'Password'
+          .field.form-group
+            .col-sm-12
+              .input-group
+                %span.input-group-addon
+                  %i.fa.fa-lock
+                = f.password_field :retypepassword, autofocus: true, :class => 'form-control', :placeholder => 'Confirm Password'
+          .block.form-group{:style => 'text-align:center'}
+            %input{:style => 'margin-right:5px', :type => 'checkbox' , :id => 'check-box', :name => 'user[check-box]'}
+              %span
+                I accept the
+                %a{:href => 'agreement'} User Agreement
+          .panel-footer
+            .actions
+              %center
+                = f.submit 'Sign Up', :class => 'btn btn-primary btn-block'
+                %br/
+                %i.fa.fa-arrow-left.arw
+                - if controller_name != 'sessions'
+                  = link_to "Back to Login", new_session_path(resource_name)

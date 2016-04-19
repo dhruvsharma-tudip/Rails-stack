@@ -1,0 +1,25 @@
+.container-fluid
+  .panel.panel-primary
+    .panel-heading
+      %h4 Users
+    .panel-body.collapse.in
+      %table#custom-datatable.table.table-responsive.datatables{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+        .table-stripped
+          %thead
+            %tr
+              %th First Name
+              %th Last Name
+              %th Email
+              %th Role
+
+          %tbody
+            - @users.all.each do |user|
+              %tr
+                %td
+                  = user.first_name
+                %td
+                  = user.last_name
+                %td
+                  = user.email
+                %td
+                  = user.roles.pluck('DISTINCT name').join(', ')

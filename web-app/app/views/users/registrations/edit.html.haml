@@ -1,0 +1,96 @@
+.container-fluid
+  .row
+    .col-md-12
+      .panel.panel-midnightblue
+        .panel-body
+          .col-md-2
+            =image_tag(@user.avatar.url(:medium))
+          .col-md-10
+            = form_for(@user , as: resource_name, url:registration_path(resource_name), html: { :id=>'edit_user', method: :put }) do |f|
+              .row.col-md-10
+                .control-label.col-md-4.form-group{:style => 'text-align: left'}
+                  = f.label :email
+                .col-md-6.form-group
+                  = f.email_field :email, autofocus: true, :disabled=>true, :class =>'form-control'
+              .row.col-md-10
+                .control-label.col-md-4.form-group{:style => 'text-align: left'}
+                  = f.label :first_name , 'First Name *'
+                .col-md-6.form-group
+                  = f.text_field :first_name, placeholder: 'First Name', autocomplete: "off", :class =>'form-control first-name'
+              .row.col-md-10
+                .control-label.col-md-4.form-group{:style => 'text-align: left'}
+                  = f.label :last_name, 'Last Name *'
+                .col-md-6.form-group
+                  = f.text_field :last_name, placeholder: 'Last Name', autocomplete: 'off', :class =>'form-control last-name'
+              .row.col-md-10
+                .control-label.col-md-4.form-group{:style => 'text-align: left'}
+                  = f.label :profile_photo, 'Profile Photo'
+                .col-md-6.form-group
+                  = f.file_field :avatar, :class =>'form-control'
+              %br
+                = f.fields_for :profile do |profile_form|
+                  .row.col-md-10
+                    .control-label.col-md-4.form-group{:style => 'text-align: left'}
+                      = profile_form.label :date_of_birth, 'Date of Birth *'
+                    .col-md-6.form-group
+                      = profile_form.text_field :dob, autocomplete: 'off', class: 'form-control date-field', id:'datepicker-futuredisabled'
+                  .row.col-md-10
+                    .control-label.col-md-4.form-group{:style => 'text-align: left'}
+                      = profile_form.label :phone_number, 'Phone Number *'
+                    .col-md-6.form-group
+                      = profile_form.text_field :phonenumber, autocomplete: 'off', :class =>'form-control phone-number'
+                  .row.col-md-10
+                    .control-label.col-md-4.form-group{:style => 'text-align: left'}
+                      = profile_form.label :rent_buy_unknown
+                    .col-md-6.form-group
+                      = profile_form.select :rentvsbuyvsunknown, options_for_select([['Buy', 'Buy'] , ['Rent', 'Rent'] ,['Unknown', 'Unknown']], :selected => profile_form.object.rentvsbuyvsunknown), {:include_blank=> 'Select'}, :class => 'form-control'
+                  .row.col-md-10
+                    .control-label.col-md-4.form-group{:style => 'text-align: left'}
+                      = profile_form.label :when_looking_for
+                    .col-md-6.form-group
+                      = profile_form.select :whenlookkingfor, options_for_select([ ['ASAP', 'ASAP'] , ['3 Months', '3 Months'] ,['6 Months', '6 Months'] ,['1 Year', '1 Year'] ,['Just Browsing', 'Just Browsing']], :selected => profile_form.object.whenlookkingfor), {:include_blank=> 'Select'}, :class => 'form-control'
+                  .row.col-md-10
+                    .control-label.col-md-4.form-group{:style => 'text-align: left'}
+                      = profile_form.label :number_of_beds , 'No. Of Beds'
+                    .col-md-6.form-group
+                      = profile_form.select :noofbeds, options_for_select([ ['1', '1'] , ['2', '2'] ,['3', '3'] ,['4', '4'] ,['5', '5']], :selected => profile_form.object.noofbeds),{:include_blank=> 'Select'}, :class => 'form-control'
+                  .row.col-md-10
+                    .control-label.col-md-4.form-group{:style => 'text-align: left'}
+                      = profile_form.label :number_of_bathrooms , 'No. of Bathrooms'
+                    .col-md-6.form-group
+                      = profile_form.select :noofbathrooms, options_for_select([ ['1', '1'] , ['2', '2'] ,['3', '3'] ,['4', '4'] ,['5', '5']], :selected => profile_form.object.noofbathrooms),{:include_blank=> 'Select'}, :class => 'form-control'
+                  .row.col-md-10
+                    .control-label.col-md-4.form-group{:style => 'text-align: left'}
+                      = profile_form.label :budget , 'Budget *'
+                    .col-md-6.form-group
+                      = profile_form.text_field :budget, autocomplete: 'off', :class =>'form-control bud-get'
+                  .row.col-md-10
+                    .control-label.col-md-4.form-group{:style => 'text-align: left'}
+                      = profile_form.label :number_of_children, 'No. Of Children'
+                    .col-md-6.form-group
+                      = profile_form.select :noofchildren, options_for_select([ ['0','0'] , ['1', '1'] , ['2', '2'] ,['3', '3'] ,['4', '4'] ,['5', '5']], :selected => profile_form.object.noofchildren),{:include_blank=> 'Select'}, :class => 'form-control'
+                  .row.col-md-10
+                    .control-label.col-md-4.form-group{:style => 'text-align: left'}
+                      = profile_form.label :age_child , 'Age of Child'
+                    .col-md-6.form-group
+                      = profile_form.text_field :agechild, autocomplete: 'off', :class =>'form-control age-child'
+                  .row.col-md-10
+                    .control-label.col-md-4.form-group{:style => 'text-align: left'}
+                      = profile_form.label :licensed_real_estate_professional, 'Licensed Real Estate Professional'
+                    .col-md-6.form-group
+                      = profile_form.select :decision1, options_for_select([ ['Yes', 'Yes'] , ['No', 'No']], :selected => profile_form.object.decision1),{:include_blank=> 'Select'}, :class => 'form-control'
+                  .row.col-md-10
+                    .control-label.col-md-4.form-group{:style => 'text-align: left'}
+                      = profile_form.label :access_to_public_transportation, 'Access to Public Transport'
+                    .col-md-6.form-group
+                      = profile_form.select :decision2, options_for_select([ ['Yes', 'Yes'] , ['No', 'No']], :selected => profile_form.object.decision2),{:include_blank=> 'Select'}, :class => 'form-control'
+                  .row.col-md-10
+                    .control-label.col-md-4.form-group{:style => 'text-align: left'}
+                      = profile_form.label :work_address , 'Work Address'
+                    .col-md-6.form-group
+                      = profile_form.text_area :workaddress, autocomplete: 'off', :class =>'form-control'
+
+              .actions.row.col-md-10
+                %center
+                  = f.submit 'Update', :class =>'btn btn-primary'
+

@@ -1,0 +1,7 @@
+mailer:
+  user_name: 'maheshwpawar'
+  password: 'tudip123'
+  domain: 'gmail.com'
+  address: 'smtp.sendgrid.net'
+  port: '587'
+base_url: 'schoolsparrowapp.tudip.com'

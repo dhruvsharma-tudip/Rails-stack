@@ -1,0 +1,60 @@
+.container-fluid
+  .panel-body
+    %p#notice= notice
+
+    %p
+      %b Name:
+      = @school.name
+    %p
+      %b Avg class size:
+      = @school.avg_class_size
+    %p
+      %b Description:
+      = @school.description
+    %p
+      %b Address:
+      = @school.address
+    %p
+      %b Demo Graphics:
+      = @school.demo_graphics
+    %p
+      %b Network:
+      = @school.network
+    %p
+      %b No. of Students:
+      = @school.number_of_students
+    %p
+      %b nwea math:
+      = @school.nwea_math
+    %p
+      %b nwea_reading:
+      = @school.nwea_reading
+    %p
+      %b School level number :
+      = @school.school_level_number
+    %p
+      %b School Options:
+      = @school.school_options
+    %p
+      %b School Sparrow Score:
+      = @school.school_sparrow_score
+    %p
+      %b School Short Name:
+      = @school.short_name
+    %p
+      %b School Statistics:
+      = @school.statistics
+    %p
+      %b School Student Options:
+      = @school.student_options
+    %p
+      %b School Web Address:
+      = @school.web_address
+    %p
+      %b School Schoool ID:
+      = @school.school_id
+
+
+    = link_to 'Edit', edit_school_path(@school)
+    \|
+    = link_to 'Back', schools_path

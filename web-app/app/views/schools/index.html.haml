@@ -1,0 +1,52 @@
+%h4 Listing schools
+.panel-magenta.collapse.in
+  %table#custom-datatable.table.table-responsive.datatables{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+    .table-stripped
+      %thead
+        %tr
+          %th Name
+          %th Avg class size
+          %th Description
+          %th Demo Graphics
+          %th Network
+          %th No. of Students
+          %th NWEA Math
+          %th NWEA Reading
+          %th School Level Number
+          %th School Options
+          %th School Sparrow Score
+          %th Short Name
+          %th Statistics
+          %th Student Options
+          %th Web Address
+          %th School ID
+          %th
+          %th
+          %th
+
+      %tbody
+        - @schools.each do |school|
+          %tr
+            %td= school.name
+            %td= school.avg_class_size
+            %td= school.description
+            %td= school.demo_graphics
+            %td= school.network
+            %td= school.number_of_students
+            %td= school.nwea_math
+            %td= school.nwea_reading
+            %td= school.school_level_number
+            %td= school.school_options
+            %td= school.school_sparrow_score
+            %td= school.short_name
+            %td= school.statistics
+            %td= school.student_options
+            %td= school.web_address
+            %td= school.school_id
+            %td= link_to 'Show', school
+            %td= link_to 'Edit', edit_school_path(school)
+            %td= link_to 'Destroy', school, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+      %br
+
+      = link_to 'Add New School', new_school_path
